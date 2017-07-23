@@ -1,0 +1,29 @@
+package:
+  name: magma
+  version: 2.2.0
+
+source:
+   url: http://icl.cs.utk.edu/projectsfiles/magma/downloads/magma-2.2.0.tar.gz
+   patches:
+     - cmakelists.patch
+     - thread_queue.patch
+
+build:
+  number: 0
+
+requirements:
+  build:
+    - cmake
+    - gcc
+    # cudatoolkit is not used in the build but is included to pin the
+    # CUDA version and avoid mixing of CUDA runtimes.
+    - cudatoolkit ==7.5
+  run:
+    - cudatoolkit ==7.5
+
+about:
+  home: http://icl.cs.utk.edu/magma/software/index.html
+  license: BSD 3-Clause
+  license_family: BSD
+  license_file: COPYRIGHT
+  summary: Matrix Algebra on GPU and Multicore Architectures
