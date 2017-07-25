@@ -13,6 +13,7 @@ source:
 
 build:
   number: 1
+  string: py{{py}}cuda{{ environ['CUDA_VERSION'] }}cudnn{{ environ['CUDNN_VERSION'] }}_1
   features:
     - nomkl  [nomkl]
   detect_binary_files_with_prefix: False
@@ -28,8 +29,8 @@ requirements:
     - gcc
     - magma
     - cmake
-    - cudatoolkit ==7.5
-    - cudnn ==5.1
+    - cudatoolkit {{ environ['CUDA_VERSION'] }}*
+    - cudnn {{ environ['CUDNN_VERSION'] }}*
     - nccl
     - openblas 0.2.19  [nomkl]
 
@@ -39,8 +40,8 @@ requirements:
     - mkl 2017.0.*     [not nomkl]
     - cffi
     - libgcc
-    - cudatoolkit ==7.5
-    - cudnn ==5.1
+    - cudatoolkit {{ environ['CUDA_VERSION'] }}*
+    - cudnn {{ environ['CUDNN_VERSION'] }}*
     - nccl
     - openblas 0.2.19  [nomkl]
 
