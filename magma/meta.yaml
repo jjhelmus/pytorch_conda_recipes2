@@ -10,6 +10,7 @@ source:
 
 build:
   number: 0
+  string: py{{py}}cuda{{ environ['CUDA_VERSION'] }}_0
 
 requirements:
   build:
@@ -17,9 +18,9 @@ requirements:
     - gcc
     # cudatoolkit is not used in the build but is included to pin the
     # CUDA version and avoid mixing of CUDA runtimes.
-    - cudatoolkit ==7.5
+    - cudatoolkit {{ environ['CUDA_VERSION'] }}*
   run:
-    - cudatoolkit ==7.5
+    - cudatoolkit {{ environ['CUDA_VERSION'] }}*
 
 about:
   home: http://icl.cs.utk.edu/magma/software/index.html
