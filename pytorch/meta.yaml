@@ -21,7 +21,7 @@ build:
 requirements:
   build:
     - python
-    - numpy
+    - numpy 1.11*
     - setuptools
     - pyyaml
     - mkl              [not nomkl]
@@ -36,7 +36,7 @@ requirements:
 
   run:
     - python
-    - numpy
+    - numpy >=1.11
     - mkl 2017.0.*     [not nomkl]
     - cffi
     - libgcc
